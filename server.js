@@ -40,7 +40,7 @@ http.createServer(function (request, response) {
         }
         else {
             response.writeHead(404);
-            response.end(filePath);
+            response.end(exists);
         }
     });
      
