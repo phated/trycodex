@@ -7,8 +7,8 @@ http.createServer(function (request, response) {
     //console.log('request starting...');
      
     var filePath = '.' + request.url;
-    if (filePath == './')
-        filePath = './fluid.html';
+    if (filePath == '.')
+        filePath = 'fluid.html';
          
     var extname = path.extname(filePath);
     var contentType = 'text/html';
