@@ -8,7 +8,7 @@ http.createServer(function (request, response) {
      
     var filePath = '.' + request.url;
     if (filePath == './' || filePath == '.')
-        filePath = './fluid.html';
+        filePath = __dirname + '/fluid.html';
          
     var extname = path.extname(filePath);
     var contentType = 'text/html';
@@ -40,7 +40,7 @@ http.createServer(function (request, response) {
         }
         else {
             response.writeHead(404);
-            response.end(exists);
+            response.end(filePath);
         }
     });
      
