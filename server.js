@@ -28,14 +28,19 @@ http.createServer(function (request, response) {
      
         if (exists) {
             fs.readFile(filePath, function(error, content) {
+                if (error) {
+                    response.writeHead(500);
+                    response.end();
+                }
+                else {
                     response.writeHead(200, { 'Content-Type': contentType });
                     response.end(content, 'utf-8');
-                
+                }
             });
         }
         else {
             response.writeHead(404);
-            response.end();
+            response.end(filePath);
         }
     });
      
