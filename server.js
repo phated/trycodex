@@ -8,7 +8,7 @@ http.createServer(function (request, response) {
      
     var filePath = '.' + request.url;
     if (filePath == './' || filePath == '.')
-        filePath = __dirname + '/fluid.html';
+        filePath = '/fluid.html';
          
     var extname = path.extname(filePath);
     var contentType = 'text/html';
@@ -27,7 +27,7 @@ http.createServer(function (request, response) {
     path.exists(filePath, function(exists) {
      
         if (exists) {
-            fs.readFile(filePath, function(error, content) {
+            fs.readFile(__dirname + filePath, function(error, content) {
                 if (error) {
                     response.writeHead(500);
                     response.end();
