@@ -27,12 +27,66 @@
       <div class="topbar-inner">
         <div class="container-fluid">
           <a class="brand" href="#">Try Codex</a>
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <p class="pull-right">Logged in as <a href="#">username</a></p>
+					<form>
+						<label for="codeEditorTheme">Code Editor Theme</label>
+						<select name="codeEditorTheme" id="codeEditorTheme">
+							<option value="ace/theme/chrome">Chrome</option>
+							<option value="ace/theme/clouds">Clouds</option>
+							<option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+							<option value="ace/theme/cobalt">Cobalt</option>
+							<option value="ace/theme/crimson_editor">Crimson Editor</option>
+							<option value="ace/theme/dawn">Dawn</option>
+							<option value="ace/theme/dreamweaver">Dreamweaver</option>
+							<option value="ace/theme/eclipse">Eclipse</option>
+							<option value="ace/theme/idle_fingers">Idle Fingers</option>
+							<option value="ace/theme/kr_theme">KR Theme</option>
+							<option value="ace/theme/merbivore">Merbivore</option>
+							<option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+							<option value="ace/theme/mono_industrial">Mono Industrial</option>
+							<option value="ace/theme/monokai">Monokai</option>
+							<option value="ace/theme/pastel_on_dark">Pastel on Dark</option>
+							<option value="ace/theme/solarized_dark">Solarized Dark</option>
+							<option value="ace/theme/solarized_light">Solarized Light</option>
+							<option value="ace/theme/textmate" selected>Textmate</option>
+							<option value="ace/theme/tomorrow">Tomorrow</option>
+							<option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+							<option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+							<option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+							<option value="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</option>
+							<option value="ace/theme/twilight">Twilight</option>
+							<option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+						</select>
+					</form>
+					<form>
+						<label for="spexEditorTheme">Spex Editor Theme</label>
+						<select name="spexEditorTheme" id="spexEditorTheme">
+							<option value="ace/theme/chrome">Chrome</option>
+							<option value="ace/theme/clouds">Clouds</option>
+							<option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+							<option value="ace/theme/cobalt">Cobalt</option>
+							<option value="ace/theme/crimson_editor">Crimson Editor</option>
+							<option value="ace/theme/dawn">Dawn</option>
+							<option value="ace/theme/dreamweaver">Dreamweaver</option>
+							<option value="ace/theme/eclipse">Eclipse</option>
+							<option value="ace/theme/idle_fingers">Idle Fingers</option>
+							<option value="ace/theme/kr_theme">KR Theme</option>
+							<option value="ace/theme/merbivore">Merbivore</option>
+							<option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+							<option value="ace/theme/mono_industrial">Mono Industrial</option>
+							<option value="ace/theme/monokai">Monokai</option>
+							<option value="ace/theme/pastel_on_dark">Pastel on Dark</option>
+							<option value="ace/theme/solarized_dark">Solarized Dark</option>
+							<option value="ace/theme/solarized_light">Solarized Light</option>
+							<option value="ace/theme/textmate" selected>Textmate</option>
+							<option value="ace/theme/tomorrow">Tomorrow</option>
+							<option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+							<option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+							<option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+							<option value="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</option>
+							<option value="ace/theme/twilight">Twilight</option>
+							<option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+						</select>
+					</form>
         </div>
       </div>
     </div>
@@ -40,26 +94,20 @@
     <div class="container-fluid">
       <div class="sidebar">
         <div class="well">
-          <h5>Sidebar</h5>
+          <h5>Your File Browser, Bishes</h5>
           <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-          <h5>Sidebar</h5>
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-          <h5>Sidebar</h5>
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
+            <li><a href="#">A File</a></li>
           </ul>
         </div>
       </div>
@@ -73,11 +121,49 @@
 
 		<script src="js/less-1.1.6.min.js" type="text/javascript"></script>
 		<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ace/theme-chrome.js"></script>
+		<script src="js/ace/theme-clouds.js"></script>
+		<script src="js/ace/theme-clouds_midnight.js"></script>
+		<script src="js/ace/theme-cobalt.js"></script>
+		<script src="js/ace/theme-crimson_editor.js"></script>
+		<script src="js/ace/theme-dawn.js"></script>
+		<script src="js/ace/theme-dreamweaver.js"></script>
+		<script src="js/ace/theme-eclipse.js"></script>
+		<script src="js/ace/theme-idle_fingers.js"></script>
+		<script src="js/ace/theme-kr_theme.js"></script>
+		<script src="js/ace/theme-merbivore.js"></script>
+		<script src="js/ace/theme-merbivore_soft.js"></script>
+		<script src="js/ace/theme-mono_industrial.js"></script>
+		<script src="js/ace/theme-monokai.js"></script>
+		<script src="js/ace/theme-pastel_on_dark.js"></script>
+		<script src="js/ace/theme-solarized_dark.js"></script>
+		<script src="js/ace/theme-solarized_light.js"></script>
+		<script src="js/ace/theme-tomorrow.js"></script>
+		<script src="js/ace/theme-tomorrow_night.js"></script>
+		<script src="js/ace/theme-tomorrow_night_blue.js"></script>
+		<script src="js/ace/theme-tomorrow_night_bright.js"></script>
+		<script src="js/ace/theme-tomorrow_night_eighties.js"></script>
+		<script src="js/ace/theme-twilight.js"></script>
+		<script src="js/ace/theme-vibrant_ink.js"></script>
 		<script>
+			var codeEditor, spexEditor;
 			window.onload = function() {
-				var codeEditor = ace.edit("codeEditor");
-				var spexEditor = ace.edit("spexEditor");
+				codeEditor = ace.edit("codeEditor");
+				codeEditor.getSession().setValue("Editor for your amazingly functional & clean code");
+
+				spexEditor = ace.edit("spexEditor");
+				spexEditor.getSession().setValue("Editor for your Spexy specifications");
+
 			};
+
+			document.addEventListener("DOMContentLoaded", function() {
+				document.getElementById("codeEditorTheme").addEventListener("change", function(){
+					codeEditor.setTheme(this.value);
+				});
+				document.getElementById("spexEditorTheme").addEventListener("change", function(){
+					spexEditor.setTheme(this.value);
+				});
+			});
 		</script>
   </body>
 </html>

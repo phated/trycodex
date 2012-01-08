@@ -1,10 +1,36 @@
 @height: `window.innerHeight`;
+@topOffset: 40px;
 
 body {
-  padding-top: 60px;
+  padding-top: @topOffset;
+}
+
+.topbar label {
+	color: #BFBFBF;
+	padding-right: 10px;
+}
+
+.container-fluid {
+	&> .sidebar {
+		left: 0;
+		.well {
+			height: (0px + @height) - @topOffset;
+			margin-bottom: 0;
+			padding: 0 19px;
+			border: 0;
+		}
+	}
+	&> .content {
+		margin-left: 200px;
+	}
+}
+
+#codeEditor,
+#spexEditor {
+	font-size: 18px;
 }
 
 .editor {
 	position: relative;
-	height: (-60px + @height);
+	height: (0px + @height) - @topOffset;
 }
