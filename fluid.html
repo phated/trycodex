@@ -87,9 +87,19 @@
 							<option value="ace/theme/vibrant_ink">Vibrant Ink</option>
 						</select>
 					</form>
+					<form class="pull-right" id="spexButton">
+						<button class="btn">Get Spexy</button>
+					</form>
         </div>
       </div>
     </div>
+
+		<div class="rightbar">
+			<ul>
+				<li>Option1</li>
+				<li>Option2</li>
+			</ul>
+		</div>
 
     <div class="container-fluid">
       <div class="sidebar">
@@ -148,12 +158,23 @@
 		<script>
 			var codeEditor, spexEditor;
 			window.onload = function() {
+				var insertAtEnd = function(textToInsert){
+					var lineCount = this.getSession().getValue().split("\n").length;
+					var endOfLastLine = lineCount + 1
+					this.gotoLine(endOfLastLine);
+					this.insert("\n" + textToInsert);
+				}
+
 				codeEditor = ace.edit("codeEditor");
-				codeEditor.getSession().setValue("Editor for your amazingly functional & clean code");
-
 				spexEditor = ace.edit("spexEditor");
-				spexEditor.getSession().setValue("Editor for your Spexy specifications");
 
+				codeEditor.insertAtEnd = insertAtEnd;
+				spexEditor.insertAtEnd = insertAtEnd;
+
+				codeEditor.getSession().setValue("Editor for your amazingly functional & clean code");
+				codeEditor.insertAtEnd("a new value");
+
+				spexEditor.getSession().setValue("Editor for your Spexy specifications");
 			};
 
 			document.addEventListener("DOMContentLoaded", function() {
@@ -163,6 +184,10 @@
 				document.getElementById("spexEditorTheme").addEventListener("change", function(){
 					spexEditor.setTheme(this.value);
 				});
+				document.getElementById("spexButton").addEventListener("submit", function(){
+					event.preventDefault();
+					spexEditor.insertAtEnd("\n>> Given a {} for {}\n\n>> When a {} is {}\n\n>> Then {}");
+				})
 			});
 		</script>
   </body>
