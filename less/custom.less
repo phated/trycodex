@@ -34,6 +34,12 @@ body {
   position: fixed;
   top: @gutterOffset;
   bottom: @gutterOffset;
+	.ace_gutter-cell.ace_error {
+		.gradientBar(#ee5f5b, #c43c35);
+	}
+	.ace_gutter-cell.ace_warning {
+		.gradientBar(#fceec1, #eedc94);
+	}
 }
 
 #codeEditor {

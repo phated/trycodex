@@ -90,6 +90,13 @@
                 <li><a href="#" data-theme="ace/theme/vibrant_ink">Vibrant Ink</a></li>
               </ul>
             </li>
+						<li class="dropdown" data-dropdown="dropdown">
+							<a href="#" class="dropdown-toggle">Language</a>
+							<ul id="codeEditorLanguage" class="dropdown-menu">
+								<li><a href="#" data-language="javascript">JavaScript</a></li>
+								<li><a href="#" data-language="coffeescript">CoffeeScript</a></li>
+							</ul>
+						</li>
           </ul>
           <ul id="spexMenu" class="nav">
             <li><a href="#" id="generateSpex">Generate Spex</a></li>
@@ -123,13 +130,20 @@
                 <li><a href="#" data-theme="ace/theme/vibrant_ink">Vibrant Ink</a></li>
               </ul>
             </li>
+						<li class="dropdown" data-dropdown="dropdown">
+							<a href="#" class="dropdown-toggle">Language</a>
+							<ul id="spexEditorLanguage" class="dropdown-menu">
+								<li><a href="#" data-language="javascript">JavaScript</a></li>
+								<li><a href="#" data-language="coffeescript">CoffeeScript</a></li>
+							</ul>
+						</li>
           </ul>
         </div>
       </div>
     </div>
 
 		<div class="rightbar">
-			
+
 		</div>
 
     <div class="container-fluid">
@@ -157,7 +171,7 @@
         <div id="spexEditor"></div>
       </div>
     </div>
-    
+
     <div class="bottombar">
       <div class="bottombar-inner">
         <div class="container-fluid">
@@ -202,7 +216,7 @@
     <script src="js/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/mode-coffee.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			var codeEditor, spexEditor;
+			var codeEditor, spexEditor, JavaScriptMode, CoffeeScriptMode;
 			$(window).load(function() {
 				var insertAtEnd = function(textToInsert){
 					var lineCount = this.getSession().getValue().split("\n").length;
@@ -210,26 +224,26 @@
 					this.gotoLine(endOfLastLine);
 					this.insert("\n" + textToInsert);
 				}
-        
-        var JavaScriptMode = require("ace/mode/javascript").Mode;
-        var CoffeeScriptMode = require("ace/mode/coffee").Mode;
+
+        JavaScriptMode = require("ace/mode/javascript").Mode;
+        CoffeeScriptMode = require("ace/mode/coffee").Mode;
 
 				codeEditor = ace.edit("codeEditor");
 				spexEditor = ace.edit("spexEditor");
 
 				codeEditor.insertAtEnd = insertAtEnd;
 				spexEditor.insertAtEnd = insertAtEnd;
-        
-        codeEditor.getSession().setMode(new JavaScriptMode());
+
+
         spexEditor.getSession().setMode(new CoffeeScriptMode());
 
 				codeEditor.getSession().setValue("// Editor for your amazingly functional & clean code");
 				codeEditor.insertAtEnd("// a new value");
 
 				spexEditor.getSession().setValue("# Editor for your Spexy specifications");
-       
+
 			});
-      
+
       $(document).ready(function(){
         $('#codeEditorTheme a').on('click', function(){
           event.preventDefault();
@@ -243,6 +257,24 @@
           $(this).parent('li').addClass('selected').siblings('.selected').removeClass('selected');
           spexEditor.setTheme(theme);
         });
+				$('#codeEditorLanguage a').on('click', function(){
+					event.preventDefault();
+					var language = $(this).attr('data-language');
+					if(language == 'javascript') {
+						codeEditor.getSession().setMode(new JavaScriptMode());
+					} else if(language == 'coffeescript') {
+						codeEditor.getSession().setMode(new CoffeeScriptMode());
+					}
+				});
+				$('#spexEditorLanguage a').on('click', function(){
+					event.preventDefault();
+					var language = $(this).attr('data-language');
+					if(language == 'javascript') {
+						codeEditor.getSession().setMode(new JavaScriptMode());
+					} else if(language == 'coffeescript') {
+						codeEditor.getSession().setMode(new CoffeeScriptMode());
+					}
+				});
         $('#generateSpex').on('click', function(){
           event.preventDefault();
 					spexEditor.insertAtEnd("\n#>> Given a {} for {}\n\n#>> When a {} is {}\n\n#>> Then {}");
