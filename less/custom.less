@@ -1,6 +1,7 @@
 @height: `window.innerHeight`;
 @gutterOffset: 40px;
-@fileBrowser: 220px;
+@leftToolbar: 80px;
+@spexPosition: 53.5%;
 
 body {
   padding-top: @gutterOffset;
@@ -24,7 +25,7 @@ body {
 		}
 	}
 	&> .content {
-		margin-left: @fileBrowser;
+		margin-left: @leftToolbar;
 	}
 }
 
@@ -43,24 +44,24 @@ body {
 }
 
 #codeEditor {
-  left: 216px;
-  right: 40%;
+  left: @leftToolbar;
+  right: 47%;
 }
 
 #spexEditor {
-  right: @gutterOffset;
-  left: 60.2%;
+  right: 0;
+  left: @spexPosition;
 }
 
 #clInput {
   width: inherit;
   position: fixed;
-  left: 121px;
-  right: @gutterOffset;
+  left: 127px;
+  right: 10px;
 }
 
 #spexMenu {
-  left: 60%;
+  left: @spexPosition;
   position: absolute;
 }
 
@@ -70,17 +71,17 @@ body {
   }
 }
 
-.rightbar {
-  width: 40px;
+.leftbar {
+  width: @leftToolbar;
   position: fixed;
   top: @gutterOffset;
-  right: 0;
+  left: 0;
   bottom: @gutterOffset;
   z-index: 10000;
   overflow: visible;
 
 	background-color: #222;
-  #gradient > .horizontal(#333, #222);
+  #gradient > .horizontal(#222, #333);
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   .box-shadow(@shadow);
 
@@ -164,6 +165,7 @@ body {
 
   .input-prepend .add-on {
     color: @black;
+		left: 10px;
   }
 }
 

@@ -54,14 +54,14 @@
             <li class="dropdown" data-dropdown="dropdown">
               <a href="#" class="dropdown-toggle">Search</a>
               <ul id="file" class="dropdown-menu">
-                <li><a href="#">Find</a></li>
+                <li><a href="#" id="codeSearch">Find</a></li>
                 <li><a href="#">Replace</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Goto</a></li>
               </ul>
             </li>
             <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="dropdown-toggle">Code Editor Theme</a>
+              <a href="#" class="dropdown-toggle">Theme</a>
               <ul id="codeEditorTheme" class="dropdown-menu">
                 <li><a href="#" data-theme="ace/theme/chrome">Chrome</a></li>
                 <li><a href="#" data-theme="ace/theme/clouds">Clouds</a></li>
@@ -101,7 +101,7 @@
           <ul id="spexMenu" class="nav">
             <li><a href="#" id="generateSpex">Generate Spex</a></li>
             <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="dropdown-toggle">Spex Editor Theme</a>
+              <a href="#" class="dropdown-toggle">Theme</a>
               <ul id="spexEditorTheme" class="dropdown-menu">
                 <li><a href="#" data-theme="ace/theme/chrome">Chrome</a></li>
                 <li><a href="#" data-theme="ace/theme/clouds">Clouds</a></li>
@@ -142,12 +142,12 @@
       </div>
     </div>
 
-		<div class="rightbar">
+		<div class="leftbar">
 
 		</div>
 
     <div class="container-fluid">
-      <div class="sidebar">
+      <!--<div class="sidebar">
         <div class="well">
           <h5>Your File Browser, Bishes</h5>
           <ul>
@@ -165,7 +165,7 @@
             <li><a href="#">A File</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
       <div class="content">
         <div id="codeEditor"></div>
         <div id="spexEditor"></div>
@@ -283,11 +283,17 @@
           return false;
         });
         $('#codeUndo').on('click', function(){
+					event.preventDefault();
           codeEditor.undo();
         });
         $('#codeRedo').on('click', function(){
+					event.preventDefault();
           codeEditor.redo();
         });
+				$('#codeSearch').on('click', function(){
+					event.preventDefault();
+					codeEditor.find('function');
+				});
       });
 		</script>
   </body>
