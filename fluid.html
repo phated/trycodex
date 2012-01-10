@@ -234,11 +234,11 @@
 				codeEditor.insertAtEnd = insertAtEnd;
 				spexEditor.insertAtEnd = insertAtEnd;
 
-
+				codeEditor.getSession().setMode(new CoffeeScriptMode());
         spexEditor.getSession().setMode(new CoffeeScriptMode());
 
-				codeEditor.getSession().setValue("// Editor for your amazingly functional & clean code");
-				codeEditor.insertAtEnd("// a new value");
+				codeEditor.getSession().setValue("# Editor for your amazingly functional & clean code");
+				codeEditor.insertAtEnd("# Tested my .insertAtEnd function");
 
 				spexEditor.getSession().setValue("# Editor for your Spexy specifications");
 
@@ -270,9 +270,9 @@
 					event.preventDefault();
 					var language = $(this).attr('data-language');
 					if(language == 'javascript') {
-						codeEditor.getSession().setMode(new JavaScriptMode());
+						spexEditor.getSession().setMode(new JavaScriptMode());
 					} else if(language == 'coffeescript') {
-						codeEditor.getSession().setMode(new CoffeeScriptMode());
+						spexEditor.getSession().setMode(new CoffeeScriptMode());
 					}
 				});
         $('#generateSpex').on('click', function(){
