@@ -27,78 +27,109 @@
       <div class="topbar-inner">
         <div class="container-fluid">
           <a class="brand" href="#">Try Codex</a>
-					<form>
-						<label for="codeEditorTheme">Code Editor Theme</label>
-						<select name="codeEditorTheme" id="codeEditorTheme">
-							<option value="ace/theme/chrome">Chrome</option>
-							<option value="ace/theme/clouds">Clouds</option>
-							<option value="ace/theme/clouds_midnight">Clouds Midnight</option>
-							<option value="ace/theme/cobalt">Cobalt</option>
-							<option value="ace/theme/crimson_editor">Crimson Editor</option>
-							<option value="ace/theme/dawn">Dawn</option>
-							<option value="ace/theme/dreamweaver">Dreamweaver</option>
-							<option value="ace/theme/eclipse">Eclipse</option>
-							<option value="ace/theme/idle_fingers">Idle Fingers</option>
-							<option value="ace/theme/kr_theme">KR Theme</option>
-							<option value="ace/theme/merbivore">Merbivore</option>
-							<option value="ace/theme/merbivore_soft">Merbivore Soft</option>
-							<option value="ace/theme/mono_industrial">Mono Industrial</option>
-							<option value="ace/theme/monokai">Monokai</option>
-							<option value="ace/theme/pastel_on_dark">Pastel on Dark</option>
-							<option value="ace/theme/solarized_dark">Solarized Dark</option>
-							<option value="ace/theme/solarized_light">Solarized Light</option>
-							<option value="ace/theme/textmate" selected>Textmate</option>
-							<option value="ace/theme/tomorrow">Tomorrow</option>
-							<option value="ace/theme/tomorrow_night">Tomorrow Night</option>
-							<option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
-							<option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
-							<option value="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</option>
-							<option value="ace/theme/twilight">Twilight</option>
-							<option value="ace/theme/vibrant_ink">Vibrant Ink</option>
-						</select>
-					</form>
-					<form>
-						<label for="spexEditorTheme">Spex Editor Theme</label>
-						<select name="spexEditorTheme" id="spexEditorTheme">
-							<option value="ace/theme/chrome">Chrome</option>
-							<option value="ace/theme/clouds">Clouds</option>
-							<option value="ace/theme/clouds_midnight">Clouds Midnight</option>
-							<option value="ace/theme/cobalt">Cobalt</option>
-							<option value="ace/theme/crimson_editor">Crimson Editor</option>
-							<option value="ace/theme/dawn">Dawn</option>
-							<option value="ace/theme/dreamweaver">Dreamweaver</option>
-							<option value="ace/theme/eclipse">Eclipse</option>
-							<option value="ace/theme/idle_fingers">Idle Fingers</option>
-							<option value="ace/theme/kr_theme">KR Theme</option>
-							<option value="ace/theme/merbivore">Merbivore</option>
-							<option value="ace/theme/merbivore_soft">Merbivore Soft</option>
-							<option value="ace/theme/mono_industrial">Mono Industrial</option>
-							<option value="ace/theme/monokai">Monokai</option>
-							<option value="ace/theme/pastel_on_dark">Pastel on Dark</option>
-							<option value="ace/theme/solarized_dark">Solarized Dark</option>
-							<option value="ace/theme/solarized_light">Solarized Light</option>
-							<option value="ace/theme/textmate" selected>Textmate</option>
-							<option value="ace/theme/tomorrow">Tomorrow</option>
-							<option value="ace/theme/tomorrow_night">Tomorrow Night</option>
-							<option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
-							<option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
-							<option value="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</option>
-							<option value="ace/theme/twilight">Twilight</option>
-							<option value="ace/theme/vibrant_ink">Vibrant Ink</option>
-						</select>
-					</form>
-					<form class="pull-right" id="spexButton">
-						<button class="btn">Get Spexy</button>
-					</form>
+          <ul class="nav">
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">File</a>
+              <ul id="file" class="dropdown-menu">
+                <li><a href="#">New</a></li>
+                <li><a href="#">Open</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Save</a></li>
+                <li><a href="#">Save As</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Rename</a></li>
+                <li><a href="#">Close</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Edit</a>
+              <ul id="file" class="dropdown-menu">
+                <li><a href="#" id="codeUndo">Undo</a></li>
+                <li><a href="#" id="codeRedo">Redo</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Select All</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Search</a>
+              <ul id="file" class="dropdown-menu">
+                <li><a href="#">Find</a></li>
+                <li><a href="#">Replace</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Goto</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Code Editor Theme</a>
+              <ul id="codeEditorTheme" class="dropdown-menu">
+                <li><a href="#" data-theme="ace/theme/chrome">Chrome</a></li>
+                <li><a href="#" data-theme="ace/theme/clouds">Clouds</a></li>
+                <li><a href="#" data-theme="ace/theme/clouds_midnight">Clouds Midnight</a></li>
+                <li><a href="#" data-theme="ace/theme/cobalt">Cobalt</a></li>
+                <li><a href="#" data-theme="ace/theme/crimson_editor">Crimson Editor</a></li>
+                <li><a href="#" data-theme="ace/theme/dawn">Dawn</a></li>
+                <li><a href="#" data-theme="ace/theme/dreamweaver">Dreamweaver</a></li>
+                <li><a href="#" data-theme="ace/theme/eclipse">Eclipse</a></li>
+                <li><a href="#" data-theme="ace/theme/idle_fingers">Idle Fingers</a></li>
+                <li><a href="#" data-theme="ace/theme/kr_theme">KR Theme</a></li>
+                <li><a href="#" data-theme="ace/theme/merbivore">Merbivore</a></li>
+                <li><a href="#" data-theme="ace/theme/merbivore_soft">Merbivore Soft</a></li>
+                <li><a href="#" data-theme="ace/theme/mono_industrial">Mono Industrial</a></li>
+                <li><a href="#" data-theme="ace/theme/monokai">Monokai</a></li>
+                <li><a href="#" data-theme="ace/theme/pastel_on_dark">Pastel on Dark</a></li>
+                <li><a href="#" data-theme="ace/theme/solarized_dark">Solarized Dark</a></li>
+                <li><a href="#" data-theme="ace/theme/solarized_light">Solarized Light</a></li>
+                <li class="selected"><a href="#" data-theme="ace/theme/textmate">Textmate</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow">Tomorrow</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night">Tomorrow Night</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</a></li>
+                <li><a href="#" data-theme="ace/theme/twilight">Twilight</a></li>
+                <li><a href="#" data-theme="ace/theme/vibrant_ink">Vibrant Ink</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="spexMenu" class="nav">
+            <li><a href="#" id="generateSpex">Generate Spex</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Spex Editor Theme</a>
+              <ul id="spexEditorTheme" class="dropdown-menu">
+                <li><a href="#" data-theme="ace/theme/chrome">Chrome</a></li>
+                <li><a href="#" data-theme="ace/theme/clouds">Clouds</a></li>
+                <li><a href="#" data-theme="ace/theme/clouds_midnight">Clouds Midnight</a></li>
+                <li><a href="#" data-theme="ace/theme/cobalt">Cobalt</a></li>
+                <li><a href="#" data-theme="ace/theme/crimson_editor">Crimson Editor</a></li>
+                <li><a href="#" data-theme="ace/theme/dawn">Dawn</a></li>
+                <li><a href="#" data-theme="ace/theme/dreamweaver">Dreamweaver</a></li>
+                <li><a href="#" data-theme="ace/theme/eclipse">Eclipse</a></li>
+                <li><a href="#" data-theme="ace/theme/idle_fingers">Idle Fingers</a></li>
+                <li><a href="#" data-theme="ace/theme/kr_theme">KR Theme</a></li>
+                <li><a href="#" data-theme="ace/theme/merbivore">Merbivore</a></li>
+                <li><a href="#" data-theme="ace/theme/merbivore_soft">Merbivore Soft</a></li>
+                <li><a href="#" data-theme="ace/theme/mono_industrial">Mono Industrial</a></li>
+                <li><a href="#" data-theme="ace/theme/monokai">Monokai</a></li>
+                <li><a href="#" data-theme="ace/theme/pastel_on_dark">Pastel on Dark</a></li>
+                <li><a href="#" data-theme="ace/theme/solarized_dark">Solarized Dark</a></li>
+                <li><a href="#" data-theme="ace/theme/solarized_light">Solarized Light</a></li>
+                <li class="selected"><a href="#" data-theme="ace/theme/textmate">Textmate</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow">Tomorrow</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night">Tomorrow Night</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</a></li>
+                <li><a href="#" data-theme="ace/theme/tomorrow_night_eighties">Tomorrow Night Eighties</a></li>
+                <li><a href="#" data-theme="ace/theme/twilight">Twilight</a></li>
+                <li><a href="#" data-theme="ace/theme/vibrant_ink">Vibrant Ink</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
 		<div class="rightbar">
-			<ul>
-				<li>Option1</li>
-				<li>Option2</li>
-			</ul>
+			
 		</div>
 
     <div class="container-fluid">
@@ -122,14 +153,27 @@
         </div>
       </div>
       <div class="content">
-        <div class="row">
-          <div id="codeEditor" class="span10 editor"></div>
-					<div id="spexEditor" class="span10 offset10 editor"></div>
+        <div id="codeEditor"></div>
+        <div id="spexEditor"></div>
+      </div>
+    </div>
+    
+    <div class="bottombar">
+      <div class="bottombar-inner">
+        <div class="container-fluid">
+          <form id="commandLine">
+            <div class="input-prepend">
+              <span class="add-on">user@trycodex: ~$</span>
+              <input class="xxlarge" id="clInput" name="clInput" size="500" type="text">
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
+		<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
 		<script src="js/less-1.1.6.min.js" type="text/javascript"></script>
+		<script src="js/bootstrap-dropdown.js" type="text/javascript"></script>
 		<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/ace/theme-chrome.js"></script>
 		<script src="js/ace/theme-clouds.js"></script>
@@ -155,40 +199,64 @@
 		<script src="js/ace/theme-tomorrow_night_eighties.js"></script>
 		<script src="js/ace/theme-twilight.js"></script>
 		<script src="js/ace/theme-vibrant_ink.js"></script>
+    <script src="js/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ace/mode-coffee.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			var codeEditor, spexEditor;
-			window.onload = function() {
+			$(window).load(function() {
 				var insertAtEnd = function(textToInsert){
 					var lineCount = this.getSession().getValue().split("\n").length;
 					var endOfLastLine = lineCount + 1
 					this.gotoLine(endOfLastLine);
 					this.insert("\n" + textToInsert);
 				}
+        
+        var JavaScriptMode = require("ace/mode/javascript").Mode;
+        var CoffeeScriptMode = require("ace/mode/coffee").Mode;
 
 				codeEditor = ace.edit("codeEditor");
 				spexEditor = ace.edit("spexEditor");
 
 				codeEditor.insertAtEnd = insertAtEnd;
 				spexEditor.insertAtEnd = insertAtEnd;
+        
+        codeEditor.getSession().setMode(new JavaScriptMode());
+        spexEditor.getSession().setMode(new CoffeeScriptMode());
 
-				codeEditor.getSession().setValue("Editor for your amazingly functional & clean code");
-				codeEditor.insertAtEnd("a new value");
+				codeEditor.getSession().setValue("// Editor for your amazingly functional & clean code");
+				codeEditor.insertAtEnd("// a new value");
 
-				spexEditor.getSession().setValue("Editor for your Spexy specifications");
-			};
-
-			document.addEventListener("DOMContentLoaded", function() {
-				document.getElementById("codeEditorTheme").addEventListener("change", function(){
-					codeEditor.setTheme(this.value);
-				});
-				document.getElementById("spexEditorTheme").addEventListener("change", function(){
-					spexEditor.setTheme(this.value);
-				});
-				document.getElementById("spexButton").addEventListener("submit", function(){
-					event.preventDefault();
-					spexEditor.insertAtEnd("\n>> Given a {} for {}\n\n>> When a {} is {}\n\n>> Then {}");
-				})
+				spexEditor.getSession().setValue("# Editor for your Spexy specifications");
+       
 			});
+      
+      $(document).ready(function(){
+        $('#codeEditorTheme a').on('click', function(){
+          event.preventDefault();
+          var theme = $(this).attr('data-theme');
+          $(this).parent('li').addClass('selected').siblings('.selected').removeClass('selected');
+          codeEditor.setTheme(theme);
+        });
+        $('#spexEditorTheme a').on('click', function(){
+          event.preventDefault();
+          var theme = $(this).attr('data-theme');
+          $(this).parent('li').addClass('selected').siblings('.selected').removeClass('selected');
+          spexEditor.setTheme(theme);
+        });
+        $('#generateSpex').on('click', function(){
+          event.preventDefault();
+					spexEditor.insertAtEnd("\n#>> Given a {} for {}\n\n#>> When a {} is {}\n\n#>> Then {}");
+        });
+        $('#commandLine').on('submit', function(){
+          return false;
+        });
+        $('#codeUndo').on('click', function(){
+          codeEditor.undo();
+        });
+        $('#codeRedo').on('click', function(){
+          codeEditor.redo();
+        });
+      });
 		</script>
   </body>
 </html>

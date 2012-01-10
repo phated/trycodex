@@ -1,8 +1,9 @@
 @height: `window.innerHeight`;
-@topOffset: 40px;
+@gutterOffset: 40px;
+@fileBrowser: 220px;
 
 body {
-  padding-top: @topOffset;
+  padding-top: @gutterOffset;
 }
 
 .topbar label {
@@ -14,33 +15,61 @@ body {
 	&> .sidebar {
 		left: 0;
 		.well {
-			height: (0px + @height) - @topOffset;
+			position: fixed;
+      top: @gutterOffset;
+      bottom: @gutterOffset;
 			margin-bottom: 0;
 			padding: 0 19px;
 			border: 0;
 		}
 	}
 	&> .content {
-		margin-left: 200px;
+		margin-left: @fileBrowser;
 	}
 }
 
 #codeEditor,
 #spexEditor {
 	font-size: 18px;
+  position: fixed;
+  top: @gutterOffset;
+  bottom: @gutterOffset;
 }
 
-.editor {
-	position: relative;
-	height: (0px + @height) - @topOffset;
+#codeEditor {
+  left: 220px;
+  right: 40%;
+}
+
+#spexEditor {
+  right: @gutterOffset;
+  left: 60%;
+}
+
+#clInput {
+  width: inherit;
+  position: fixed;
+  left: 121px;
+  right: @gutterOffset;
+}
+
+#spexMenu {
+  left: 60%;
+  position: absolute;
+}
+
+.dropdown-menu {
+  .selected {
+    background: @black;
+  }
 }
 
 .rightbar {
-  width: 60px;
-	height: 100%;
+  width: 40px;
   position: fixed;
-  top: @topOffset;
+  top: @gutterOffset;
   right: 0;
+  bottom: @gutterOffset;
   z-index: 10000;
   overflow: visible;
 
@@ -60,4 +89,86 @@ body {
 		margin: 0;
 		padding: 0 10px;
 	}
+}
+
+.bottombar {
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  overflow: visible;
+
+  // Links get text shadow
+  a {
+    color: @grayLight;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  }
+
+  // Hover and active states
+  // h3 for backwards compatibility
+  h3 a:hover,
+  .brand:hover,
+  ul .active > a {
+    background-color: #333;
+    background-color: rgba(255,255,255,.05);
+    color: @white;
+    text-decoration: none;
+  }
+
+  // Website name
+  // h3 left for backwards compatibility
+  h3 {
+    position: relative;
+  }
+  h3 a,
+  .brand {
+    float: left;
+    display: block;
+    padding: 8px 20px 12px;
+    margin-left: -20px; // negative indent to left-align the text down the page
+    color: @white;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+  }
+
+  // Plain text in topbar
+  p {
+    margin: 0;
+    line-height: 40px;
+    a:hover {
+      background-color: transparent;
+      color: @white;
+    }
+  }
+
+  // Search Form
+  form {
+    float: left;
+    margin: 5px 0 0 0;
+    position: relative;
+    .opacity(100);
+  }
+  // Todo: remove from v2.0 when ready, added for legacy
+  form.pull-right {
+    float: right;
+  }
+  
+  .input-prepend .add-on {
+    color: @black;
+  }
+}
+
+.bottombar-inner,
+.bottombar .fill {
+  background-color: #222;
+  #gradient > .vertical(#333, #222);
+  @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+  .container-fluid {
+    height: 40px;
+    padding-left: 0;
+  }
 }
