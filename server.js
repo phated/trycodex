@@ -1,47 +1,45 @@
+require('coffee-script');
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
- 
-http.createServer(function (request, response) {
- 
-    //console.log('request starting...');
-     
-    var filePath = __dirname + request.url;
-    if (filePath == __dirname + '/')
-        filePath += '/fluid.html';
-         
-    var extname = path.extname(filePath);
-    var contentType = 'text/html';
-    switch (extname) {
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
-				case '.less':
-						contentType = 'text/css';
-						break;
-    }
-     
-    path.exists(filePath, function(exists) {
-     
-        if (exists) {
-            fs.readFile(filePath, function(error, content) {
-                if (error) {
-                    response.writeHead(500);
-                    response.end();
-                }
-                else {
-                    response.writeHead(200, { 'Content-Type': contentType });
-                    response.end(content, 'utf-8');
-                }
-            });
-        }
-        else {
-            response.writeHead(404);
-            response.end(filePath);
-        }
-    });
-     
-}).listen(13465);
+var connect = require('connect');
+var boxy = require('boxy');
+
+var server = connect.createServer();
+server.use(connect.favicon());
+server.use(connect.static(__dirname + '/public'));
+server.use(connect.bodyParser());
+
+server.use(connect.router(function(server){
+  server.get('/', function(req, res, next){
+    var filePath = 'fluid.html';
+    path.exists(filePath, function(exists) {
+      if (exists) {
+        fs.readFile(filePath, function(error, content) {
+          if (error) {
+            res.writeHead(500);
+            res.end();
+          } else {
+            res.writeHead(200);
+            res.end(content, 'utf-8');
+          }
+        });
+      } else {
+        res.writeHead(404);
+        res.end(filePath);
+      }
+    });
+  });
+  server.post('/boxy', function(req, res, next){
+    boxy.exeCoffee(req.body.code, {}, function(result){
+      if(result.status == 'ok') {
+        console.log(result.sandbox);
+      } else {
+        console.log(result.error);
+      }
+      return result;
+    });
+  });
+}));
+
+server.listen(13465);

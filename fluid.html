@@ -28,6 +28,7 @@
         <div class="container-fluid">
           <a class="brand" href="#">Try Codex</a>
           <ul class="nav">
+            <li><a href="#" id="runCode">Run Code</a></li>
             <li class="dropdown" data-dropdown="dropdown">
               <a href="#" class="dropdown-toggle">Edit</a>
               <ul id="file" class="dropdown-menu">
@@ -289,6 +290,10 @@
         $('#generateSpex').on('click', function(){
           event.preventDefault();
 					spexEditor.insertAtEnd("\n#>> Given a {} for {}\n\n#>> When a {} is {}\n\n#>> Then {}");
+        });
+        $('#runCode').on('click', function(){
+          event.preventDefault();
+          $.post("/boxy", { code: codeEditor.getSession().getValue() });
         });
         $('#commandLine').on('submit', function(){
           return false;
