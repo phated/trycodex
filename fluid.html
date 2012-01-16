@@ -247,6 +247,7 @@
         CoffeeScriptMode = require("ace/mode/coffee").Mode;
 
 				codeEditor = ace.edit("codeEditor");
+console.log(codeEditor.getSession());
 				spexEditor = ace.edit("spexEditor");
 
 				codeEditor.insertAtEnd = insertAtEnd;
